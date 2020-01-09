@@ -1,14 +1,13 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Header from '../Header/Header.js';
+import ZipCodeForm from '../ZipCodeForm/ZipCodeForm.js';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>
-          Market 2 Table
-        </h1>
-      </header>
+      <ZipCodeForm />
+      <Header />
     </div>
   );
 }
