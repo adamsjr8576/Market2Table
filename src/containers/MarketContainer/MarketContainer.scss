@@ -1,0 +1,25 @@
+.market-container-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 85vh;
+}
+
+.market-list-section {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  overflow: auto;
+  width: 550px;
+}
+
+.markets-map-section {
+  height: 500px;
+  width: 700px;
+  border: 4px solid black;
+  background-color: rgba(255, 255, 255, .6);
+  border-radius: 30px;
+  text-align: center;
+}

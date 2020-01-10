@@ -1,0 +1,47 @@
+.main-header {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  margin-top: 10px;
+  margin: 10px 0px 0px 10px;
+}
+
+.header-button {
+  width: 175px;
+  font-size: 1.25em;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+}
+
+.header-button:hover,
+.header-button:focus {
+  transform: scale(1.05);
+}
+
+.logo-zip-header-section {
+  width: 23%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 4em;
+  text-decoration: underline;
+  margin: 10px 0;
+  width: 50%;
+}
+
+.favorites-home-header-section {
+  width: 23%;
+}

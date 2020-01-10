@@ -11,3 +11,18 @@ export const addZipCode = zipCode => {
      zipCode
    }
  };
+
+ export const removeZipCode = () => {
+   return {
+     type: 'REMOVE_ZIPCODE',
+     emptyString: ''
+   }
+ }
+
+ export const toggleFavorite = (id, favorite) => {
+   return {
+     type: 'TOGGLE_FAVORITE',
+     id,
+     favorite
+   }
+ }

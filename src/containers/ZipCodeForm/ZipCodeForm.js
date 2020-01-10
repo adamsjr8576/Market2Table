@@ -22,24 +22,30 @@ class ZipCodeForm extends Component {
   }
 
   handleZipCodeSubmit = () => {
-    this.setState({ zipCode: ''} );
-    let farmersMarketsInfo = farmersMarkets.map(market => {
-      const marketNameSplit = market.marketname.split(' ');
-      marketNameSplit.shift();
-      market.marketname = marketNameSplit.join(' ');
-      const split1 = marketInfo.GoogleLink.split('=').pop();
-      const split2 = split1.split('%');
-      const lat = split2[0];
-      const long = split2[2].slice(-10);
-      const marketCopy = {...marketInfo, latitude: lat, longitude: long}
-      return {...market, ...marketCopy}
-    });
-    this.props.addMarkets(farmersMarketsInfo);
-    this.props.addZipCode(this.state.zipCode);
+    if(this.state.zipCode.length === 5) {
+      this.setState({ zipCode: ''} );
+      let farmersMarketsInfo = farmersMarkets.map(market => {
+        const marketNameSplit = market.marketname.split(' ');
+        marketNameSplit.shift();
+        market.marketname = marketNameSplit.join(' ');
+        market.favorite = false;
+        const split1 = marketInfo.GoogleLink.split('=').pop();
+        const split2 = split1.split('%');
+        const lat = split2[0];
+        const long = split2[2].slice(-10);
+        const marketCopy = {...marketInfo, latitude: lat, longitude: long}
+        return {...market, ...marketCopy}
+      });
+      this.props.addMarkets(farmersMarketsInfo);
+      this.props.addZipCode(this.state.zipCode);
+    }
   }
 
   render() {
-    const opacity = 0;
+    let opacity = 0;
+    if(this.props.path.includes('markets')) {
+      opacity = .9;
+    }
     if (this.props.zipCode.length > 0) {
       return (
     <Redirect to='/markets' />
@@ -60,8 +66,8 @@ class ZipCodeForm extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addMarkets: (markets) => dispatch( addMarkets(markets) ),
-  addZipCode: (zipCode) => dispatch( addZipCode(zipCode) )
+  addMarkets: markets => dispatch( addMarkets(markets) ),
+  addZipCode: zipCode => dispatch( addZipCode(zipCode) )
 });
 
 export const mapStateToProps = state => ({
