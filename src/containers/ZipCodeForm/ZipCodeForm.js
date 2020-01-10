@@ -24,7 +24,15 @@ class ZipCodeForm extends Component {
   handleZipCodeSubmit = () => {
     this.setState({ zipCode: ''} );
     let farmersMarketsInfo = farmersMarkets.map(market => {
-      return {...market, ...marketInfo}
+      const marketNameSplit = market.marketname.split(' ');
+      marketNameSplit.shift();
+      market.marketname = marketNameSplit.join(' ');
+      const split1 = marketInfo.GoogleLink.split('=').pop();
+      const split2 = split1.split('%');
+      const lat = split2[0];
+      const long = split2[2].slice(-10);
+      const marketCopy = {...marketInfo, latitude: lat, longitude: long}
+      return {...market, ...marketCopy}
     });
     this.props.addMarkets(farmersMarketsInfo);
     this.props.addZipCode(this.state.zipCode);

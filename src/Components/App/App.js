@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.scss';
 import Header from '../Header/Header.js';
 import ZipCodeForm from '../../containers/ZipCodeForm/ZipCodeForm.js';
+import MarketContainer from '../../containers/MarketContainer/MarketContainer.js';
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
       />
       <Route path='/' render={() => {
         return <Header />
+      }}
+      />
+      <Route exact path='/markets' render={() => {
+        return <MarketContainer />
       }}
       />
     </div>
