@@ -23,17 +23,22 @@ class ZipCodeForm extends Component {
 
   handleZipCodeSubmit = () => {
     if(this.state.zipCode.length === 5) {
+      console.log(farmersMarkets);
       this.setState({ zipCode: ''} );
-      let farmersMarketsInfo = farmersMarkets.map(market => {
+      const farmersMarketsCopy = [...farmersMarkets];
+      let farmersMarketsInfo = farmersMarketsCopy.map(market => {
         const marketNameSplit = market.marketname.split(' ');
-        marketNameSplit.shift();
-        market.marketname = marketNameSplit.join(' ');
+        if (marketNameSplit[0].includes('.')) {
+          marketNameSplit.shift();
+          market.marketname = marketNameSplit.join(' ');
+        }
         market.favorite = false;
-        const split1 = marketInfo.GoogleLink.split('=').pop();
+        let marketInfoCopy = {...marketInfo};
+        const split1 = marketInfoCopy.GoogleLink.split('=').pop();
         const split2 = split1.split('%');
         const lat = split2[0];
         const long = split2[2].slice(-10);
-        const marketCopy = {...marketInfo, latitude: lat, longitude: long}
+        const marketCopy = {...marketInfoCopy, latitude: lat, longitude: long}
         return {...market, ...marketCopy}
       });
       this.props.addMarkets(farmersMarketsInfo);
