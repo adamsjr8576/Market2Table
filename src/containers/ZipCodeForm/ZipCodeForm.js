@@ -23,7 +23,6 @@ class ZipCodeForm extends Component {
 
   handleZipCodeSubmit = () => {
     if(this.state.zipCode.length === 5) {
-      console.log(farmersMarkets);
       this.setState({ zipCode: ''} );
       const farmersMarketsCopy = [...farmersMarkets];
       let farmersMarketsInfo = farmersMarketsCopy.map(market => {

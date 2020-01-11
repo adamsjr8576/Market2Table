@@ -3,30 +3,48 @@
   align-items: center;
   justify-content: space-between;
   width: 500px;
-  padding: 2px;
+  padding: 12px;
   border: 3px solid black;
   background-color: #FFE7BF;
   border-radius: 30px;
   text-align: center;
-  cursor: pointer;
-}
-
-.market-article:hover,
-.market-article:focus {
-  transform: scale(1.02);
 }
 
 .market-article-name {
   font-size: 1.25em;
-  margin-left: 20px;
+  text-align: center;
+  margin: 0px 5px;
 }
 
 .chili-icon {
   height: 30px;
   width: 30px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
-.chili-icon:hover {
+.favorites-button {
+  border: 0;
+  background-color: transparent;
+  outline: 0;
+}
+
+.favorites-button:hover,
+.favorites-button:focus {
   transform: scale(1.2);
+}
+
+.market-link-to-page {
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.market-link-to-page:hover,
+.market-link-to-page:focus {
+  transform: scale(1.02);
 }

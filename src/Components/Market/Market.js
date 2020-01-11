@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Market.scss';
 import { connect } from 'react-redux';
 import images from '../../images/images.js';
@@ -8,10 +9,12 @@ const Market = ({ id, marketName, favorite, toggleFavorite }) => {
   let image;
   favorite? image = images.redChili : image = images.chili;
   return (
-    <article className="market-article">
-      <h1 className="market-article-name">{marketName}</h1>
-      <img src={image} alt="chili icon" className="chili-icon" onClick={() => toggleFavorite(id, favorite)}/>
-    </article>
+      <article className="market-article">
+        <Link to={`/markets/${id}`} className="market-link-to-page">
+          <h1 className="market-article-name">{marketName}</h1>
+        </Link>
+        <button className="favorites-button" type="button" onClick={() => toggleFavorite(id, favorite)}><img src={image} alt="chili icon" className="chili-icon" /></button>
+      </article>
   )
 }
 
