@@ -5,7 +5,12 @@ import Market from '../../Components/Market/Market.js';
 import ZipCodeForm from '../ZipCodeForm/ZipCodeForm.js';
 
 const MarketContainer = ({ markets, zipCode, path }) => {
-  const marketsList = markets.map(market => {
+  let marketsToMap = markets;
+  if (path.includes('favorites')) {
+    marketsToMap = markets.filter(market => market.favorite)
+    console.log(marketsToMap);
+  }
+  const marketsList = marketsToMap.map(market => {
     return (
       <Market
         key={market.id}

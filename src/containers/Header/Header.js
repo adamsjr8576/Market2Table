@@ -18,10 +18,32 @@ const Header = ({ zipCode, markets, removeZipCode }) => {
           return <button className="header-button" type="button" onClick={() => removeZipCode()}>Zip Code: {zipCode}</button>
         }}
         />
+        <Route exact path="/markets/:id" render={() => {
+          return (
+            <Link to='/markets' className="header-button-link">
+              <button className="header-link-button" type="button">Back</button>
+            </Link>
+          )
+        }}
+        />
       </section>
       <h1 className="header-title">Market2Table</h1>
       <section className="favorites-home-header-section">
-        <button className="header-button" type="button">Favorites: {favorites}</button>
+        <Route path={['/markets', '/favorites']} render={() => {
+          return (
+            <Link to='/favorites' className="header-button-link">
+              <button className="header-link-button">Favorites: {favorites}</button>
+            </Link>)
+          }}
+        />
+        <Route path={['/markets', '/favorites']} render={() => {
+          return (
+            <Link to='/' className="header-button-link">
+              <button className="header-link-button" onClick={() => removeZipCode()}>Home</button>
+            </Link>
+          )
+          }}
+        />
       </section>
     </header>
   )

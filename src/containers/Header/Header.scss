@@ -23,8 +23,24 @@
 }
 
 .header-button:hover,
-.header-button:focus {
+.header-button:focus,
+.header-link-button:hover,
+.header-link-button:focus {
   transform: scale(1.05);
+}
+
+.header-button-link {
+  width: 150px;
+}
+
+.header-link-button {
+  width: 100%;
+  font-size: 1.25em;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
 }
 
 .logo-zip-header-section {
@@ -44,4 +60,9 @@
 
 .favorites-home-header-section {
   width: 23%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }

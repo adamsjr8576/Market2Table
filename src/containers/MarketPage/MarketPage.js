@@ -13,9 +13,22 @@ export const MarketPage = ({ id, markets, toggleFavorite }) => {
     <main className="market-page-main">
       <section className="market-page-section">
         <div className="market-page-header-container">
-          <h1 className="market-page-header">{market.marketname}</h1>
+          <h1 className="market-page-name">{market.marketname}</h1>
           <button className="favorites-button" type="button" onClick={() => toggleFavorite(id, market.favorite)}><img src={image} alt="chili icon" className="chili-icon" /></button>
         </div>
+        <div className="market-page-info-container">
+          <h2 className="market-page-header">Address:</h2>
+          <p className="products-p">{market.Address}</p>
+        </div>
+        <div className="market-page-info-container">
+          <h2 className="market-page-header">Products:</h2>
+          <p className="products-p">{market.Products}</p>
+        </div>
+        <div className="market-page-info-container">
+          <h2 className="market-page-header">Schedule:</h2>
+          <p className="products-p">{market.Schedule}</p>
+        </div>
+        <a href={market.GoogleLink}>Google Maps</a>
       </section>
       <section className="markets-map-section">
         <p>MAPPPPP</p>
