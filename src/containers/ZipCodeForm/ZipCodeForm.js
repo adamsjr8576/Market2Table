@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './ZipCodeForm.scss';
 import { farmersMarkets, marketInfo } from '../../mockData.js';
-import { addMarkets, addZipCode } from '../../actions/index.js';
+import { addMarkets, addZipCode, addFavorites } from '../../actions/index.js';
 
 class ZipCodeForm extends Component {
   constructor() {
@@ -14,6 +14,12 @@ class ZipCodeForm extends Component {
     }
   }
 
+  componentDidMount = () => {
+    var marketsFromStorage = localStorage.getItem('favorites');
+    var parsedMarkets = JSON.parse(marketsFromStorage);
+    this.props.addFavorites(parsedMarkets);
+  }
+
   handleZipCodeChange = (e) => {
     if (e.target.value.length > 5) {
       e.target.value = e.target.value.slice(0, 5);
@@ -21,7 +27,7 @@ class ZipCodeForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleZipCodeSubmit = () => {
+  handleZipCodeSubmit = favorites => {
     if(this.state.zipCode.length === 5) {
       this.setState({ zipCode: ''} );
       const farmersMarketsCopy = [...farmersMarkets];
@@ -40,7 +46,15 @@ class ZipCodeForm extends Component {
         const marketCopy = {...marketInfoCopy, latitude: lat, longitude: long}
         return {...market, ...marketCopy}
       });
-      this.props.addMarkets(farmersMarketsInfo);
+      const updatedFavorites = farmersMarketsInfo.map(market => {
+        const objectCheck = favorites.find(favorite => favorite.id === market.id);
+        if (objectCheck) {
+          return objectCheck
+        } else {
+          return market
+        }
+      });
+      this.props.addMarkets(updatedFavorites);
       this.props.addZipCode(this.state.zipCode);
     }
   }
@@ -62,7 +76,7 @@ class ZipCodeForm extends Component {
             Enter zip code to find farmers markets near you:
           </label>
           <input onChange={(e) => this.handleZipCodeChange(e)} value={this.state.zipCode} className="zip-code-input" type="number" placeholder="Zip Code..." id="zipCode" name="zipCode"/>
-          <button onClick={this.handleZipCodeSubmit} className="zip-code-button" type="button">Find!</button>
+          <button onClick={() => this.handleZipCodeSubmit(this.props.favorites)} className="zip-code-button" type="button">Find!</button>
         </form>
       </main>
     )
@@ -71,11 +85,13 @@ class ZipCodeForm extends Component {
 
 export const mapDispatchToProps = dispatch => ({
   addMarkets: markets => dispatch( addMarkets(markets) ),
-  addZipCode: zipCode => dispatch( addZipCode(zipCode) )
+  addZipCode: zipCode => dispatch( addZipCode(zipCode) ),
+  addFavorites: favorites => dispatch( addFavorites(favorites) )
 });
 
 export const mapStateToProps = state => ({
-  zipCode: state.zipCode
+  zipCode: state.zipCode,
+  favorites: state.favorites
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ZipCodeForm);

@@ -6,7 +6,7 @@ import ZipCodeForm from '../../containers/ZipCodeForm/ZipCodeForm.js';
 import MarketContainer from '../../containers/MarketContainer/MarketContainer.js';
 import MarketPage from '../../containers/MarketPage/MarketPage.js';
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={({ location }) => {

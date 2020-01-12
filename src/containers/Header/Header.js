@@ -18,7 +18,7 @@ const Header = ({ zipCode, markets, removeZipCode }) => {
           return <button className="header-button" type="button" onClick={() => removeZipCode()}>Zip Code: {zipCode}</button>
         }}
         />
-        <Route exact path="/markets/:id" render={() => {
+        <Route exact path={['/markets/:id', '/favorites']} render={() => {
           return (
             <Link to='/markets' className="header-button-link">
               <button className="header-link-button" type="button">Back</button>

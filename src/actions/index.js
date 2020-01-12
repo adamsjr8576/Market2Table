@@ -26,3 +26,17 @@ export const addZipCode = zipCode => {
      favorite
    }
  }
+
+ export const controlFavorites = market => {
+   return {
+     type: 'CONTROL_FAVORITES',
+     market
+   }
+ }
+
+ export const addFavorites = markets => {
+   return {
+     type: 'ADD_FAVORITES',
+     markets
+   }
+ }
