@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Market from '../../Components/Market/Market.js';
 import ZipCodeForm from '../ZipCodeForm/ZipCodeForm.js';
+import MapContainer from '../MapContainer/MapContainer.js';
 import images from '../../images/images.js';
 
 export const MarketContainer = ({ markets, zipCode, favorites, path }) => {
   let favoritesDisplay;
+  let mapDisplay;
   let marketsToMap = markets;
   if (path.includes('favorites')) {
     marketsToMap = favorites
@@ -25,8 +27,10 @@ export const MarketContainer = ({ markets, zipCode, favorites, path }) => {
   });
   if (marketsToMap.length === 0) {
     favoritesDisplay = <h1 className="favorites-message">You have no favorites selected!</h1>;
+    mapDisplay = <h1 className="favorites-message">No favorites no map!</h1>
   } else {
     favoritesDisplay = marketsList;
+    mapDisplay = <MapContainer markets={marketsToMap}/>
   }
   return (
     <main className="market-container-main">
@@ -35,7 +39,7 @@ export const MarketContainer = ({ markets, zipCode, favorites, path }) => {
         {favoritesDisplay}
       </section>
       <section className="markets-map-section">
-        <p>MAPPPPP</p>
+        {mapDisplay}
       </section>
     </main>
   )

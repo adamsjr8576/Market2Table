@@ -47,7 +47,7 @@ export class ZipCodeForm extends Component {
         const split1 = marketInfo.GoogleLink.split('=').pop();
         const split2 = split1.split('%');
         const lat = split2[0];
-        const long = split2[2].slice(-10);
+        const long = split2[2].slice(2);
         const marketCopy = {...marketInfo, latitude: lat, longitude: long}
         return {...market, ...marketCopy}
       });
