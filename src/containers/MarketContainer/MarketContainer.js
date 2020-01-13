@@ -1,6 +1,7 @@
 import React from 'react';
 import './MarketContainer.scss';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Market from '../../Components/Market/Market.js';
 import ZipCodeForm from '../ZipCodeForm/ZipCodeForm.js';
 import images from '../../images/images.js';
@@ -47,3 +48,10 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(MarketContainer);
+
+MarketContainer.propTypes = {
+  markets: PropTypes.arrayOf(PropTypes.object),
+  zipCode: PropTypes.string,
+  favorites: PropTypes.array,
+  path: PropTypes.string
+}
