@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import images from '../../images/images.js';
 import { toggleFavorite, controlFavorites } from '../../actions/index.js';
 
-export const MarketPage = ({ id, markets, toggleFavorite, controlFavorites }) => {
-  const market = markets.find(market => market.id === id);
+export const MarketPage = ({ id, markets, favorites, toggleFavorite, controlFavorites }) => {
+  let market = markets.find(market => market.id === id);
+  if (market === undefined) {
+    market = favorites.find(market => market.id === id);
+  }
   let image;
   market.favorite? image = images.redChili : image = images.chili;
   return (
@@ -42,7 +45,8 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export const mapStateToProps = state => ({
-  markets: state.farmersMarkets
+  markets: state.farmersMarkets,
+  favorites: state.favorites
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MarketPage);

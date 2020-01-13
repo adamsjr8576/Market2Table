@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarketPage MarketPage Component Should match the snapshot with all the right info passed in 1`] = `
+<main
+  className="market-page-main"
+>
+  <section
+    className="market-page-section"
+  >
+    <div
+      className="market-page-header-container"
+    >
+      <h1
+        className="market-page-name"
+      >
+        Ballston Farmers Market
+      </h1>
+      <button
+        className="favorites-button"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="chili icon"
+          className="chili-icon"
+          src="chilli.png"
+        />
+      </button>
+    </div>
+    <div
+      className="market-page-info-container"
+    >
+      <h2
+        className="market-page-header"
+      >
+        Address:
+      </h2>
+      <p
+        className="products-p"
+      >
+        901 N Taylor St, Ballston, Virginia, 22203
+      </p>
+    </div>
+    <div
+      className="market-page-info-container"
+    >
+      <h2
+        className="market-page-header"
+      >
+        Products:
+      </h2>
+      <p
+        className="products-p"
+      >
+        Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry
+      </p>
+    </div>
+    <div
+      className="market-page-info-container"
+    >
+      <h2
+        className="market-page-header"
+      >
+        Schedule:
+      </h2>
+      <p
+        className="products-p"
+      >
+        June - October Thursday 3:00 PM to 7:00 PM
+      </p>
+    </div>
+    <a
+      href="http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)"
+    >
+      Google Maps
+    </a>
+  </section>
+  <section
+    className="markets-map-section"
+  >
+    <p>
+      MAPPPPP
+    </p>
+  </section>
+</main>
+`;
+
+exports[`MarketPage MarketPage Component Should match the snapshot with all the right info passed in 2`] = `
+<main
+  className="market-page-main"
+>
+  <section
+    className="market-page-section"
+  >
+    <div
+      className="market-page-header-container"
+    >
+      <h1
+        className="market-page-name"
+      >
+        Golden Farmers Market
+      </h1>
+      <button
+        className="favorites-button"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="chili icon"
+          className="chili-icon"
+          src="chilli.png"
+        />
+      </button>
+    </div>
+    <div
+      className="market-page-info-container"
+    >
+      <h2
+        className="market-page-header"
+      >
+        Address:
+      </h2>
+      <p
+        className="products-p"
+      >
+        here
+      </p>
+    </div>
+    <div
+      className="market-page-info-container"
+    >
+      <h2
+        className="market-page-header"
+      >
+        Products:
+      </h2>
+      <p
+        className="products-p"
+      >
+        Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry
+      </p>
+    </div>
+    <div
+      className="market-page-info-container"
+    >
+      <h2
+        className="market-page-header"
+      >
+        Schedule:
+      </h2>
+      <p
+        className="products-p"
+      >
+        June - October Thursday 3:00 PM to 7:00 PM
+      </p>
+    </div>
+    <a
+      href="http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)"
+    >
+      Google Maps
+    </a>
+  </section>
+  <section
+    className="markets-map-section"
+  >
+    <p>
+      MAPPPPP
+    </p>
+  </section>
+</main>
+`;
