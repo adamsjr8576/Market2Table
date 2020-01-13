@@ -78,9 +78,21 @@ exports[`MarketPage MarketPage Component Should match the snapshot with all the 
   <section
     className="markets-map-section"
   >
-    <p>
-      MAPPPPP
-    </p>
+    <Wrapper
+      market={
+        Object {
+          "Address": "901 N Taylor St, Ballston, Virginia, 22203",
+          "GoogleLink": "http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",
+          "Products": "Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry",
+          "Schedule": "June - October Thursday 3:00 PM to 7:00 PM",
+          "favorite": false,
+          "id": "22008839",
+          "latitude": "38.881112",
+          "longitude": "-77.112179",
+          "marketname": "Ballston Farmers Market",
+        }
+      }
+    />
   </section>
 </main>
 `;
@@ -163,9 +175,21 @@ exports[`MarketPage MarketPage Component Should match the snapshot with all the 
   <section
     className="markets-map-section"
   >
-    <p>
-      MAPPPPP
-    </p>
+    <Wrapper
+      market={
+        Object {
+          "Address": "here",
+          "GoogleLink": "http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",
+          "Products": "Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry",
+          "Schedule": "June - October Thursday 3:00 PM to 7:00 PM",
+          "favorite": false,
+          "id": "39",
+          "latitude": "38.881112",
+          "longitude": "-77.112179",
+          "marketname": "Golden Farmers Market",
+        }
+      }
+    />
   </section>
 </main>
 `;

@@ -30,7 +30,7 @@ export const MarketContainer = ({ markets, zipCode, favorites, path }) => {
     mapDisplay = <h1 className="favorites-message">No favorites no map!</h1>
   } else {
     favoritesDisplay = marketsList;
-    mapDisplay = <MapContainer markets={marketsToMap}/>
+    mapDisplay = <MapContainer markets={marketsToMap} path={path} />
   }
   return (
     <main className="market-container-main">

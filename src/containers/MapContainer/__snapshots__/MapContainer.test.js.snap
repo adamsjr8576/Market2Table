@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MapContainer Component should match the snapshot with market and no path passed in 1`] = `
+<div
+  id="mapBox"
+>
+  <Map
+    center={Object {}}
+    centerAroundCurrentLocation={false}
+    containerStyle={Object {}}
+    initialCenter={
+      Object {
+        "lat": "38.881112",
+        "lng": "-77.112179",
+      }
+    }
+    style={
+      Object {
+        "border": "3px solid black",
+        "borderRadius": "20px",
+        "height": "480px",
+        "width": "680px",
+      }
+    }
+    visible={true}
+    zoom={11}
+  >
+    <Marker
+      key="1002192"
+      name="Ballston FRESHFARM Market"
+      onClick={[Function]}
+      position={
+        Object {
+          "lat": "38.881112",
+          "lng": "-77.112179",
+        }
+      }
+    />
+    <InfoWindow
+      marker={Object {}}
+      onClose={[Function]}
+      visible={false}
+    >
+      <div>
+        <h4 />
+      </div>
+    </InfoWindow>
+  </Map>
+</div>
+`;
+
+exports[`MapContainer Component should match the snapshot with markets and favorites path passed in 1`] = `
+<div
+  id="mapBox"
+>
+  <Map
+    center={Object {}}
+    centerAroundCurrentLocation={false}
+    containerStyle={Object {}}
+    initialCenter={
+      Object {
+        "lat": "39.270018",
+        "lng": "-97.970908",
+      }
+    }
+    style={
+      Object {
+        "border": "3px solid black",
+        "borderRadius": "20px",
+        "height": "480px",
+        "width": "680px",
+      }
+    }
+    visible={true}
+    zoom={4}
+  >
+    <Marker
+      key="1002192"
+      name="Ballston FRESHFARM Market"
+      onClick={[Function]}
+      position={
+        Object {
+          "lat": "38.881112",
+          "lng": "-77.112179",
+        }
+      }
+    />
+    <Marker
+      key="22008839"
+      name="Ballston Farmers Market"
+      onClick={[Function]}
+      position={
+        Object {
+          "lat": "38.881112",
+          "lng": "-77.112179",
+        }
+      }
+    />
+    <InfoWindow
+      marker={Object {}}
+      onClose={[Function]}
+      visible={false}
+    >
+      <div>
+        <h4 />
+      </div>
+    </InfoWindow>
+  </Map>
+</div>
+`;
+
+exports[`MapContainer Component should match the snapshot with markets and markets path passed in 1`] = `
+<div
+  id="mapBox"
+>
+  <Map
+    center={Object {}}
+    centerAroundCurrentLocation={false}
+    containerStyle={Object {}}
+    initialCenter={
+      Object {
+        "lat": "38.881112",
+        "lng": "-77.112179",
+      }
+    }
+    style={
+      Object {
+        "border": "3px solid black",
+        "borderRadius": "20px",
+        "height": "480px",
+        "width": "680px",
+      }
+    }
+    visible={true}
+    zoom={11}
+  >
+    <Marker
+      key="1002192"
+      name="Ballston FRESHFARM Market"
+      onClick={[Function]}
+      position={
+        Object {
+          "lat": "38.881112",
+          "lng": "-77.112179",
+        }
+      }
+    />
+    <Marker
+      key="22008839"
+      name="Ballston Farmers Market"
+      onClick={[Function]}
+      position={
+        Object {
+          "lat": "38.881112",
+          "lng": "-77.112179",
+        }
+      }
+    />
+    <InfoWindow
+      marker={Object {}}
+      onClose={[Function]}
+      visible={false}
+    >
+      <div>
+        <h4 />
+      </div>
+    </InfoWindow>
+  </Map>
+</div>
+`;

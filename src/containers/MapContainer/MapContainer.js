@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 import { InfoWindow, Marker } from 'google-maps-react';
+import './MapContainer.scss';
+import PropTypes from 'prop-types';
 
 const mapStyles = {
-  width: '700px',
-  height: '500px',
+  width: '680px',
+  height: '480px',
   borderRadius: '20px',
   border: '3px solid black'
 };
@@ -66,6 +68,12 @@ export class MapContainer extends Component {
         lat: this.props.market.latitude,
         lng: this.props.market.longitude
       }
+    }
+    if (this.props.path.includes('favorites')) {
+      return {
+        lat: '39.270018',
+        lng: '-97.970908'
+      }
     } else {
       const { markets } = this.props
       return {
@@ -75,28 +83,38 @@ export class MapContainer extends Component {
     }
   }
 
+  setFavoritesView = () => {
+    if (this.props.path && this.props.path.includes('favorites')) {
+      return 4
+    } else {
+      return 11
+    }
+  }
+
   render() {
+    const zoom = this.setFavoritesView();
     const markers = this.setMarkers();
     const center = this.setCenter();
-    console.log(center);
     return (
-      <Map
-        google={this.props.google}
-        zoom={11}
-        style={mapStyles}
-        initialCenter={center}
-      >
-        {markers}
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
-          onClose={this.onClose}
+      <div id='mapBox'>
+        <Map
+          google={this.props.google}
+          zoom={zoom}
+          style={mapStyles}
+          initialCenter={center}
         >
-          <div>
-            <h4>{this.state.selectedPlace.name}</h4>
-          </div>
-        </InfoWindow>
-      </Map>
+          {markers}
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div>
+              <h4>{this.state.selectedPlace.name}</h4>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
     );
   }
 }
@@ -104,3 +122,9 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyBOCAFIBU1dbEoO0GYU73BhetuwHLzM5gA'
 })(MapContainer);
+
+MapContainer.propTypes = {
+  markets: PropTypes.arrayOf(PropTypes.object),
+  market: PropTypes.object,
+  path: PropTypes.string
+}
