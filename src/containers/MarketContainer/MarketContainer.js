@@ -5,7 +5,7 @@ import Market from '../../Components/Market/Market.js';
 import ZipCodeForm from '../ZipCodeForm/ZipCodeForm.js';
 import images from '../../images/images.js';
 
-const MarketContainer = ({ markets, zipCode, favorites, path }) => {
+export const MarketContainer = ({ markets, zipCode, favorites, path }) => {
   let favoritesDisplay;
   let marketsToMap = markets;
   if (path.includes('favorites')) {
