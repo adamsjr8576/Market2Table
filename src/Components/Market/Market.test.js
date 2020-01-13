@@ -9,6 +9,7 @@ describe('Market', () => {
     let mockControlFavorites;
     let mockMarket;
     let mockImage;
+    let wrapper;
 
     beforeEach(() => {
       mockToggleFavorite = jest.fn();
@@ -19,18 +20,23 @@ describe('Market', () => {
         favorite: true
       }
       mockImage = './redChili.png';
-    });
-
-    it('should match the snapshot with all the correct data passed in', () => {
-      const wrapper = shallow(
+      wrapper = shallow(
         <Market
           market={mockMarket}
           image={mockImage}
           toggleFavorite={mockToggleFavorite}
           controlFavorites={mockControlFavorites}
         />)
+    });
 
+    it('should match the snapshot with all the correct data passed in', () => {
       expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should invoke toggleFavorite and controlFavorites on button click', () => {
+      wrapper.find('.favorites-button').simulate('click');
+      expect(mockToggleFavorite).toHaveBeenCalledWith(mockMarket.id, mockMarket.favorite);
+      expect(mockControlFavorites).toHaveBeenCalledWith(mockMarket);
     });
   });
 
