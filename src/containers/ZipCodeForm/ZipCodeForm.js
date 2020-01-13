@@ -17,7 +17,9 @@ class ZipCodeForm extends Component {
   componentDidMount = () => {
     var marketsFromStorage = localStorage.getItem('favorites');
     var parsedMarkets = JSON.parse(marketsFromStorage);
-    this.props.addFavorites(parsedMarkets);
+    if (parsedMarkets !== null) {
+      this.props.addFavorites(parsedMarkets);
+    }
   }
 
   handleZipCodeChange = (e) => {
@@ -46,14 +48,18 @@ class ZipCodeForm extends Component {
         const marketCopy = {...marketInfoCopy, latitude: lat, longitude: long}
         return {...market, ...marketCopy}
       });
-      const updatedFavorites = farmersMarketsInfo.map(market => {
-        const objectCheck = favorites.find(favorite => favorite.id === market.id);
-        if (objectCheck) {
-          return objectCheck
-        } else {
-          return market
-        }
-      });
+        const updatedFavorites = farmersMarketsInfo.map(market => {
+          if (favorites.length) {
+            const objectCheck = favorites.find(favorite => favorite.id === market.id);
+            if (objectCheck) {
+              return objectCheck
+            } else {
+              return market
+            }
+          } else {
+            return market
+          }
+        });
       this.props.addMarkets(updatedFavorites);
       this.props.addZipCode(this.state.zipCode);
     }

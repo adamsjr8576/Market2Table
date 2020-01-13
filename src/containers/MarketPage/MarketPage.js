@@ -2,19 +2,18 @@ import React from 'react';
 import './MarketPage.scss';
 import { connect } from 'react-redux';
 import images from '../../images/images.js';
-import { toggleFavorite } from '../../actions/index.js';
+import { toggleFavorite, controlFavorites } from '../../actions/index.js';
 
-export const MarketPage = ({ id, markets, toggleFavorite }) => {
+export const MarketPage = ({ id, markets, toggleFavorite, controlFavorites }) => {
   const market = markets.find(market => market.id === id);
   let image;
   market.favorite? image = images.redChili : image = images.chili;
-  console.log(market);
   return (
     <main className="market-page-main">
       <section className="market-page-section">
         <div className="market-page-header-container">
           <h1 className="market-page-name">{market.marketname}</h1>
-          <button className="favorites-button" type="button" onClick={() => toggleFavorite(id, market.favorite)}><img src={image} alt="chili icon" className="chili-icon" /></button>
+          <button className="favorites-button" type="button" onClick={() => {toggleFavorite(id, market.favorite); controlFavorites(market)}}><img src={image} alt="chili icon" className="chili-icon" /></button>
         </div>
         <div className="market-page-info-container">
           <h2 className="market-page-header">Address:</h2>
@@ -38,7 +37,8 @@ export const MarketPage = ({ id, markets, toggleFavorite }) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  toggleFavorite: (id, favorite) => dispatch( toggleFavorite(id, favorite) )
+  toggleFavorite: (id, favorite) => dispatch( toggleFavorite(id, favorite) ),
+  controlFavorites: market => dispatch( controlFavorites(market) )
 });
 
 export const mapStateToProps = state => ({
