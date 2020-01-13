@@ -5,7 +5,7 @@ import './ZipCodeForm.scss';
 import { farmersMarkets, marketInfo } from '../../mockData.js';
 import { addMarkets, addZipCode, addFavorites } from '../../actions/index.js';
 
-class ZipCodeForm extends Component {
+export class ZipCodeForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -30,6 +30,7 @@ class ZipCodeForm extends Component {
   }
 
   handleZipCodeSubmit = favorites => {
+    const { addMarkets, addZipCode } = this.props;
     if(this.state.zipCode.length === 5) {
       this.setState({ zipCode: ''} );
       const farmersMarketsCopy = [...farmersMarkets];
@@ -60,8 +61,8 @@ class ZipCodeForm extends Component {
             return market
           }
         });
-      this.props.addMarkets(updatedFavorites);
-      this.props.addZipCode(this.state.zipCode);
+      addMarkets(updatedFavorites);
+      addZipCode(this.state.zipCode);
     }
   }
 
@@ -72,7 +73,7 @@ class ZipCodeForm extends Component {
     }
     if (this.props.zipCode.length > 0) {
       return (
-    <Redirect to='/markets' />
+        <Redirect to='/markets' />
       )
     }
     return (

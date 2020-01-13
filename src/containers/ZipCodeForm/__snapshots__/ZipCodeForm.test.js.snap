@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ZipCodeForm ZipCodeForm Component should match the snapshot with favorites path and no zipcode 1`] = `
+<main
+  className="zip-code-container"
+  style={
+    Object {
+      "backgroundImage": "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0))",
+    }
+  }
+>
+  <form
+    className="zip-code-form"
+  >
+    <label
+      className="zip-code-input-label"
+      htmlFor="zipCode"
+    >
+      Enter zip code to find farmers markets near you:
+    </label>
+    <input
+      className="zip-code-input"
+      id="zipCode"
+      name="zipCode"
+      onChange={[Function]}
+      placeholder="Zip Code..."
+      type="number"
+      value=""
+    />
+    <button
+      className="zip-code-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Find!
+    </button>
+  </form>
+</main>
+`;
+
+exports[`ZipCodeForm ZipCodeForm Component should match the snapshot with path of markets and no zipcode 1`] = `
+<main
+  className="zip-code-container"
+  style={
+    Object {
+      "backgroundImage": "linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9))",
+    }
+  }
+>
+  <form
+    className="zip-code-form"
+  >
+    <label
+      className="zip-code-input-label"
+      htmlFor="zipCode"
+    >
+      Enter zip code to find farmers markets near you:
+    </label>
+    <input
+      className="zip-code-input"
+      id="zipCode"
+      name="zipCode"
+      onChange={[Function]}
+      placeholder="Zip Code..."
+      type="number"
+      value=""
+    />
+    <button
+      className="zip-code-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Find!
+    </button>
+  </form>
+</main>
+`;
+
+exports[`ZipCodeForm ZipCodeForm Component should match the snapshot with path of markets and the right zipcode 1`] = `
+<Redirect
+  to="/markets"
+/>
+`;
