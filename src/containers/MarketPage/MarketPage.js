@@ -1,6 +1,7 @@
 import React from 'react';
 import './MarketPage.scss';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import images from '../../images/images.js';
 import { toggleFavorite, controlFavorites } from '../../actions/index.js';
 
@@ -50,3 +51,11 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MarketPage);
+
+MarketPage.propTypes = {
+  id: PropTypes.string,
+  markets: PropTypes.arrayOf(PropTypes.object),
+  favorites: PropTypes.array,
+  toggleFavorite: PropTypes.func,
+  controlFavorites: PropTypes.func
+}
