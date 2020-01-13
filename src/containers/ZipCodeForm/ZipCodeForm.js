@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './ZipCodeForm.scss';
 import { farmersMarkets, marketInfo } from '../../mockData.js';
 import { addMarkets, addZipCode, addFavorites } from '../../actions/index.js';
@@ -102,3 +103,12 @@ export const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ZipCodeForm);
+
+ZipCodeForm.propTypes = {
+  addMarkets: PropTypes.func,
+  addZipCode: PropTypes.func,
+  addFavorites: PropTypes.func,
+  zipCode: PropTypes.string,
+  favorites: PropTypes.array,
+  path: PropTypes.string
+}
