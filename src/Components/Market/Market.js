@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import images from '../../images/images.js';
 import { toggleFavorite, controlFavorites } from '../../actions/index.js';
 
-const Market = ({ market, image, toggleFavorite, controlFavorites }) => {
+export const Market = ({ market, image, toggleFavorite, controlFavorites }) => {
   return (
       <article className="market-article">
         <Link to={`/markets/${market.id}`} className="market-link-to-page">

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Market Market Component should match the snapshot with all the correct data passed in 1`] = `
+<article
+  className="market-article"
+>
+  <Link
+    className="market-link-to-page"
+    to="/markets/1234"
+  >
+    <h1
+      className="market-article-name"
+    >
+      Golden Farmers Markets
+    </h1>
+  </Link>
+  <button
+    className="favorites-button"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="chili icon"
+      className="chili-icon"
+      src="./redChili.png"
+    />
+  </button>
+</article>
+`;
