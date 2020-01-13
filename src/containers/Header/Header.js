@@ -30,7 +30,7 @@ export const Header = ({ zipCode, favorites, removeZipCode }) => {
         <Route path={['/markets', '/favorites']} render={() => {
           return (
             <Link to='/favorites' className="header-button-link">
-              <button className="header-link-button">Favorites: {favoritesNum}</button>
+              <button className="header-link-button">Favorites: {favoritesNum} <img src={images.redChili} alt="chili icon" className="red-chili-icon" /></button>
             </Link>)
           }}
         />
