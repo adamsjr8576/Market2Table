@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './ZipCodeForm.scss';
-import { farmersMarkets, marketInfo } from '../../mockData.js';
+import { farmersMarkets, marketsInfo } from '../../mockData.js';
 import { addMarkets, addZipCode, addFavorites } from '../../actions/index.js';
 
 export class ZipCodeForm extends Component {
@@ -33,38 +33,40 @@ export class ZipCodeForm extends Component {
   handleZipCodeSubmit = favorites => {
     const { addMarkets, addZipCode } = this.props;
     if(this.state.zipCode.length === 5) {
-      this.setState({ zipCode: ''} );
       const farmersMarketsCopy = [...farmersMarkets];
-      let farmersMarketsInfo = farmersMarketsCopy.map(market => {
+      const farmersMarketsByZip = farmersMarketsCopy.filter(market => market.zipcode === this.state.zipCode)
+      let farmersMarketsInfo = farmersMarketsByZip.map(market => {
         const marketNameSplit = market.marketname.split(' ');
         if (marketNameSplit[0].includes('.')) {
           marketNameSplit.shift();
           market.marketname = marketNameSplit.join(' ');
         }
         market.favorite = false;
-        let marketInfoCopy = {...marketInfo};
-        const split1 = marketInfoCopy.GoogleLink.split('=').pop();
+        let marketsInfoCopy = [...marketsInfo];
+        let marketInfo = marketsInfoCopy.find(marketInfo => marketInfo.id === market.id);
+        const split1 = marketInfo.GoogleLink.split('=').pop();
         const split2 = split1.split('%');
         const lat = split2[0];
         const long = split2[2].slice(-10);
-        const marketCopy = {...marketInfoCopy, latitude: lat, longitude: long}
+        const marketCopy = {...marketInfo, latitude: lat, longitude: long}
         return {...market, ...marketCopy}
       });
-        const updatedFavorites = farmersMarketsInfo.map(market => {
-          if (favorites.length) {
-            const objectCheck = favorites.find(favorite => favorite.id === market.id);
-            if (objectCheck) {
-              return objectCheck
-            } else {
-              return market
-            }
+      const updatedFavorites = farmersMarketsInfo.map(market => {
+        if (favorites.length) {
+          const objectCheck = favorites.find(favorite => favorite.id === market.id);
+          if (objectCheck) {
+            return objectCheck
           } else {
             return market
           }
-        });
+        } else {
+          return market
+        }
+      });
       addMarkets(updatedFavorites);
       addZipCode(this.state.zipCode);
     }
+    this.setState({ zipCode: ''});
   }
 
   render() {

@@ -12,7 +12,7 @@ export const farmersMarkets = [
      {"zipcode":"80401", "id":"10050162", "marketname":"10.2 Evergreen Farmers market"},
 ]
 
-export const marketInfo = [
+export const marketsInfo = [
   {
     "id":"1002192",
     "GoogleLink":"http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",

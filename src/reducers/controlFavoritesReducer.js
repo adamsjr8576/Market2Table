@@ -3,12 +3,14 @@ export const controlFavoritesReducer = (state = [], action) => {
     case 'CONTROL_FAVORITES':
       var marketsFromStorage = localStorage.getItem('favorites');
       var parsedMarkets = JSON.parse(marketsFromStorage);
-      if (action.market.favorite) {
+      if (!action.market.favorite) {
         if (parsedMarkets !== null) {
-          const stringMarket = JSON.stringify([...parsedMarkets, action.market]);
+          const newMarket = {...action.market, favorite: true }
+          const stringMarket = JSON.stringify([...parsedMarkets, newMarket]);
           localStorage.setItem('favorites', stringMarket);
         } else {
-          const stringMarket = JSON.stringify([action.market]);
+          const newMarket = {...action.market, favorite: true }
+          const stringMarket = JSON.stringify([newMarket]);
           localStorage.setItem('favorites', stringMarket);
         }
         return [...state, action.market]

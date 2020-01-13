@@ -135,7 +135,7 @@ describe('ZipCodeForm', () => {
     });
 
     it('should invoke addMarkets with updatedFavorites when handleZipCodeSubmit is invoked', () => {
-      mockZipCode = '80401';
+      mockZipCode = '22202';
       mockPath = '/favorites';
       const wrapper = shallow(
         <ZipCodeForm
@@ -147,27 +147,59 @@ describe('ZipCodeForm', () => {
           path={mockPath}
         />);
       const mockMarkets = [
-        {"id":"1002192", "marketname":"Ballston FRESHFARM Market", "GoogleLink":"http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",
-        "Address":"901 N Taylor St, Ballston, Virginia, 22203",
-        "Schedule":"June - October Thursday 3:00 PM to 7:00 PM",
-        "Products":"Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry", "favorite": false, "latitude": "38.881112", "longitude": "-77.112179"},
-        {"id":"22008839", "marketname":"Ballston Farmers Market", "GoogleLink":"http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",
-        "Address":"901 N Taylor St, Ballston, Virginia, 22203",
-        "Schedule":"June - October Thursday 3:00 PM to 7:00 PM",
-        "Products":"Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry", "favorite": false, "latitude": "38.881112", "longitude": "-77.112179"},
-        {"id":"1002291", "marketname":"Four Mile Run Farmers & Artisans Market", "GoogleLink":"http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",
-        "Address":"901 N Taylor St, Ballston, Virginia, 22203",
-        "Schedule":"June - October Thursday 3:00 PM to 7:00 PM",
-        "Products":"Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry", "favorite": false, "latitude": "38.881112", "longitude": "-77.112179"},
-        {"id":"1002181", "marketname":"Dupont Circle FRESHFARM Market", "GoogleLink":"http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",
-        "Address":"901 N Taylor St, Ballston, Virginia, 22203",
-        "Schedule":"June - October Thursday 3:00 PM to 7:00 PM",
-        "Products":"Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry", "favorite": false, "latitude": "38.881112", "longitude": "-77.112179"}
+        {
+          "Address": "901 N Taylor St, Ballston, Virginia, 22203",
+          "GoogleLink": "http://maps.google.com/?q=38.881112%2C%20-77.112179%20(%22Ballston+FRESHFARM+Market%22)",
+          "Products": "Baked goods; Cheese and/or dairy products; Eggs; Fresh fruit and vegetables; Fresh and/or dried herbs; Honey; Meat; Poultry",
+          "Schedule": "June - October Thursday 3:00 PM to 7:00 PM",
+          "favorite": false,
+          "id": "1002192",
+          "latitude": "38.881112",
+          "longitude": "-77.112179",
+          "marketname": "Ballston FRESHFARM Market",
+          "zipcode": "22202",
+        },
+        {
+          "Address": "4821 1st St N, Arlington, VA 22203",
+          "GoogleLink": "http://maps.google.com/?q=38.868130%2C%20-77.127394%20(%22Ballston+FRESHFARM+Market%22)",
+          "Products": "Cheese and/or dairy products; Eggs",
+          "Schedule": "June - August Saturday 11:00 AM to 7:00 PM",
+          "favorite": false,
+          "id": "22008839",
+          "latitude": "38.868130",
+          "longitude": "-77.127394",
+          "marketname": "Ballston Farmers Market",
+          "zipcode": "22202",
+        },
+        {
+          "Address": "4401-4499 20th St N, Arlington, VA 22207",
+          "GoogleLink": "http://maps.google.com/?q=38.895064%2C%20-77.115306%20(%22Ballston+FRESHFARM+Market%22)",
+          "Products": "Fresh fruit and vegetables",
+          "Schedule": "June - July Monday 9:00 AM to 3:00 PM",
+          "favorite": false,
+          "id": "1002291",
+          "latitude": "38.895064",
+          "longitude": "-77.115306",
+          "marketname": "Four Mile Run Farmers & Artisans Market",
+          "zipcode": "22202",
+        },
+        {
+          "Address": "2299-2201 S Hayes St, Arlington, VA 22202",
+          "GoogleLink": "http://maps.google.com/?q=38.853501%2C%20-77.059516%20(%22Ballston+FRESHFARM+Market%22)",
+          "Products": "Fresh and/or dried herbs",
+          "Schedule": "March - September Wednesday 10:00 AM to 2:00 PM",
+          "favorite": false,
+          "id": "1002181",
+          "latitude": "38.853501",
+          "longitude": "-77.059516",
+          "marketname": "Dupont Circle FRESHFARM Market",
+          "zipcode": "22202",
+        }
       ]
-      wrapper.setState({ zipCode: '80401' });
+      wrapper.setState({ zipCode: '22202' });
       wrapper.instance().handleZipCodeSubmit(mockFavorites);
       expect(mockAddMarkets).toHaveBeenCalledWith(mockMarkets);
-      expect(mockAddZipCode).toHaveBeenCalledWith(wrapper.state('zipCode'));
+      expect(mockAddZipCode).toHaveBeenCalledWith('22202');
     });
 
     it('Should invoke handleZipCodeChange on input change', () => {
