@@ -41,13 +41,11 @@ describe('actions', () => {
 
   it('Should have a type of TOGGLE_FAVORITE', () => {
     const id = '12345';
-    const favorite = true;
     const expectedAction = {
       type: 'TOGGLE_FAVORITE',
-      id,
-      favorite
+      id
     }
-    const result = actions.toggleFavorite(id, favorite);
+    const result = actions.toggleFavorite(id);
     expect(result).toEqual(expectedAction);
   });
 

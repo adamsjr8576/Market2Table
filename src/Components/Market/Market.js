@@ -12,13 +12,13 @@ export const Market = ({ market, image, toggleFavorite, controlFavorites }) => {
         <Link to={`/markets/${market.id}`} className="market-link-to-page">
           <h1 className="market-article-name">{market.marketname}</h1>
         </Link>
-        <button className="favorites-button" type="button" onClick={() => {toggleFavorite(market.id, market.favorite); controlFavorites(market)}}><img src={image} alt="chili icon" className="chili-icon" /></button>
+        <button className="favorites-button" type="button" onClick={() => {toggleFavorite(market.id); controlFavorites(market)}}><img src={image} alt="chili icon" className="chili-icon" /></button>
       </article>
   )
 }
 
 export const mapDispatchToProps = dispatch => ({
-  toggleFavorite: (id, favorite) => dispatch( toggleFavorite(id, favorite) ),
+  toggleFavorite: (id) => dispatch( toggleFavorite(id) ),
   controlFavorites: market => dispatch( controlFavorites(market) )
 });
 

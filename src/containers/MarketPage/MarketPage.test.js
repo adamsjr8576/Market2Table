@@ -99,7 +99,7 @@ describe('MarketPage', () => {
 
       wrapper.find('.favorites-button').simulate('click');
 
-      expect(mockToggleFavorite).toHaveBeenCalledWith(mockId, mockMarket.favorite);
+      expect(mockToggleFavorite).toHaveBeenCalledWith(mockId);
       expect(mockControlFavorites).toHaveBeenCalledWith(mockMarket);
     });
   });
@@ -124,10 +124,10 @@ describe('MarketPage', () => {
     });
 
     it('should call dispatch with toggleFavorite', () => {
-      const actionToDispatch = toggleFavorite(mockMarket.id, mockMarket.favorite);
+      const actionToDispatch = toggleFavorite(mockMarket.id);
       const mappedProps = mapDispatchToProps(mockDispatch);
 
-      mappedProps.toggleFavorite(mockMarket.id, mockMarket.favorite);
+      mappedProps.toggleFavorite(mockMarket.id);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
 

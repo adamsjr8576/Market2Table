@@ -17,7 +17,7 @@ export const MarketPage = ({ id, markets, favorites, toggleFavorite, controlFavo
       <section className="market-page-section">
         <div className="market-page-header-container">
           <h1 className="market-page-name">{market.marketname}</h1>
-          <button className="favorites-button" type="button" onClick={() => {toggleFavorite(id, market.favorite); controlFavorites(market)}}><img src={image} alt="chili icon" className="chili-icon" /></button>
+          <button className="favorites-button" type="button" onClick={() => {toggleFavorite(id); controlFavorites(market)}}><img src={image} alt="chili icon" className="chili-icon" /></button>
         </div>
         <div className="market-page-info-container">
           <h2 className="market-page-header">Address:</h2>
@@ -41,7 +41,7 @@ export const MarketPage = ({ id, markets, favorites, toggleFavorite, controlFavo
 }
 
 export const mapDispatchToProps = dispatch => ({
-  toggleFavorite: (id, favorite) => dispatch( toggleFavorite(id, favorite) ),
+  toggleFavorite: (id) => dispatch( toggleFavorite(id) ),
   controlFavorites: market => dispatch( controlFavorites(market) )
 });
 

@@ -19,11 +19,10 @@ export const addZipCode = zipCode => {
    }
  }
 
- export const toggleFavorite = (id, favorite) => {
+ export const toggleFavorite = (id) => {
    return {
      type: 'TOGGLE_FAVORITE',
-     id,
-     favorite
+     id
    }
  }
 
