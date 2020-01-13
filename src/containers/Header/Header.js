@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Header.scss';
 import images from '../../images/images.js';
 import { removeZipCode } from '../../actions/index.js';
@@ -56,3 +57,9 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+Header.propTypes = {
+  zipCode: PropTypes.string,
+  favorites: PropTypes.array,
+  removeZipCode: PropTypes.func
+}
