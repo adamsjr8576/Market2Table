@@ -5,11 +5,8 @@ import './Header.scss';
 import images from '../../images/images.js';
 import { removeZipCode } from '../../actions/index.js';
 
-const Header = ({ zipCode, markets, removeZipCode }) => {
-  let favorites = 0;
-  if (zipCode.length > 0) {
-    favorites = markets.filter(market => market.favorite).length;
-  }
+export const Header = ({ zipCode, favorites, removeZipCode }) => {
+  const favoritesNum = favorites.length;
   return (
     <header className="main-header">
       <section className="logo-zip-header-section">
@@ -32,7 +29,7 @@ const Header = ({ zipCode, markets, removeZipCode }) => {
         <Route path={['/markets', '/favorites']} render={() => {
           return (
             <Link to='/favorites' className="header-button-link">
-              <button className="header-link-button">Favorites: {favorites}</button>
+              <button className="header-link-button">Favorites: {favoritesNum}</button>
             </Link>)
           }}
         />
@@ -51,7 +48,7 @@ const Header = ({ zipCode, markets, removeZipCode }) => {
 
 export const mapStateToProps = state => ({
   zipCode: state.zipCode,
-  markets: state.farmersMarkets
+  favorites: state.favorites
 });
 
 export const mapDispatchToProps = dispatch => ({

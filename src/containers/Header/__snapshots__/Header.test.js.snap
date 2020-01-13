@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Header Component should match the snapshot with all correct data passed in 1`] = `
+<header
+  className="main-header"
+>
+  <section
+    className="logo-zip-header-section"
+  >
+    <img
+      alt="Market 2 Table logo icon"
+      className="logo"
+      src="m2tlogo.png"
+    />
+    <Route
+      exact={true}
+      path="/markets"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path={
+        Array [
+          "/markets/:id",
+          "/favorites",
+        ]
+      }
+      render={[Function]}
+    />
+  </section>
+  <h1
+    className="header-title"
+  >
+    Market2Table
+  </h1>
+  <section
+    className="favorites-home-header-section"
+  >
+    <Route
+      path={
+        Array [
+          "/markets",
+          "/favorites",
+        ]
+      }
+      render={[Function]}
+    />
+    <Route
+      path={
+        Array [
+          "/markets",
+          "/favorites",
+        ]
+      }
+      render={[Function]}
+    />
+  </section>
+</header>
+`;
