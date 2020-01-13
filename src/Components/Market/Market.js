@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Market.scss';
 import { connect } from 'react-redux';
 import images from '../../images/images.js';
@@ -21,6 +22,11 @@ export const mapDispatchToProps = dispatch => ({
   controlFavorites: market => dispatch( controlFavorites(market) )
 });
 
-
-
 export default connect(null, mapDispatchToProps)(Market);
+
+Market.propTypes = {
+  market: PropTypes.object,
+  images: PropTypes.string,
+  toggleFavorite: PropTypes.func,
+  controlFavorites: PropTypes.func
+}
