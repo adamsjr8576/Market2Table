@@ -13,6 +13,9 @@ export const addMarketsReducer = (state = [], action) => {
       });
       return updatedFavorite;
 
+    case 'REMOVE_MARKETS':
+      return action.emptyArray
+
     default:
       return state;
   }

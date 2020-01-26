@@ -5,6 +5,13 @@ export const addMarkets = markets => {
   }
 };
 
+export const removeMarkets = () => {
+  return {
+    type: 'REMOVE_MARKETS',
+    emptyArray: []
+  }
+}
+
 export const addZipCode = zipCode => {
    return {
      type: 'ADD_ZIPCODE',

@@ -4,16 +4,16 @@ import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Header.scss';
 import images from '../../images/images.js';
-import { removeZipCode } from '../../actions/index.js';
+import { removeZipCode, removeMarkets } from '../../actions/index.js';
 
-export const Header = ({ zipCode, favorites, removeZipCode }) => {
+export const Header = ({ zipCode, favorites, removeZipCode, removeMarkets }) => {
   const favoritesNum = favorites.length;
   return (
     <header className="main-header">
       <section className="logo-zip-header-section">
         <img src={images.m2tLogo} alt="Market 2 Table logo icon" className="logo" />
         <Route exact path="/markets" render={() => {
-          return <button className="header-button" type="button" onClick={() => removeZipCode()}>Zip Code: {zipCode}</button>
+          return <button className="header-button" type="button" onClick={() => {removeZipCode(); removeMarkets();}}>Zip Code: {zipCode}</button>
         }}
         />
         <Route exact path={['/markets/:id', '/favorites']} render={() => {
@@ -37,7 +37,7 @@ export const Header = ({ zipCode, favorites, removeZipCode }) => {
         <Route path={['/markets', '/favorites']} render={() => {
           return (
             <Link to='/' className="header-button-link">
-              <button className="header-link-button" onClick={() => removeZipCode()}>Home</button>
+              <button className="header-link-button" onClick={() => {removeZipCode(); removeMarkets();}}>Home</button>
             </Link>
           )
           }}
@@ -53,7 +53,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  removeZipCode: () => dispatch( removeZipCode() )
+  removeZipCode: () => dispatch( removeZipCode() ),
+  removeMarkets: () => dispatch( removeMarkets() )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

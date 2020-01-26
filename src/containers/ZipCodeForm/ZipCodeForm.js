@@ -33,7 +33,7 @@ export class ZipCodeForm extends Component {
   handleZipCodeSubmit = favorites => {
     const { addMarkets, addZipCode } = this.props;
     if(this.state.zipCode.length === 5) {
-      let allMarketInfo = fetch(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${this.state.zipCode}`)
+      fetch(`http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${this.state.zipCode}`)
         .then(res => res.json())
         .then(markets => {
           let marketPromises = markets.results.map(market => {

@@ -20,6 +20,16 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction);
   });
 
+  it('Should have a type of REMOVE_MARKETS', () => {
+    const emptyArray = [];
+    const expectedAction = {
+      type: 'REMOVE_MARKETS',
+      emptyArray
+    }
+    const result = actions.removeMarkets();
+    expect(result).toEqual(expectedAction);
+  });
+
   it('Should have a type of ADD_ZIPCODE', () => {
     const zipCode = '80401';
     const expectedAction = {
