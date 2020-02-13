@@ -92,6 +92,7 @@ export class MapContainer extends Component {
   }
 
   render() {
+    console.log(process.env.REACT_APP_API_KEY);
     const zoom = this.setFavoritesView();
     const markers = this.setMarkers();
     const center = this.setCenter();
@@ -120,7 +121,7 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBOCAFIBU1dbEoO0GYU73BhetuwHLzM5gA'
+  apiKey: process.env.REACT_APP_API_KEY
 })(MapContainer);
 
 MapContainer.propTypes = {
