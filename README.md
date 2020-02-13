@@ -1,5 +1,8 @@
 # Market2Table - Binary Challenge Turing Mod 3 Solo Final Project
 
+## Deployed App
+[Market 2 Table](http://localmarkets.herokuapp.com/markets)
+
 ## Abstract
 
 the overarching goal of this project was to choose and work with an API of our personal choosing. Within this choice we had to create a customer profile to cater the theme of the app to. The purpose of this was to practice the creation of an app from the ground up without any provided visual comp or project iterations. This involved a higher level of planning, wireframing, and propblem solving than any project before. 
