@@ -1,7 +1,7 @@
 # Market2Table - Binary Challenge Turing Mod 3 Solo Final Project
 
 ## Deployed App
-[Market 2 Table](http://localmarkets.herokuapp.com/markets)
+[Market 2 Table](http://localmarkets.herokuapp.com/)
 
 ## Abstract
 
