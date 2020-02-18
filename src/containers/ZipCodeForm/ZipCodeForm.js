@@ -87,7 +87,6 @@ export class ZipCodeForm extends Component {
   }
 
   render() {
-    console.log(process.env.REACT_APP_API_KEY)
     let opacity = 0;
     if(this.props.path.includes('markets')) {
       opacity = .9;
